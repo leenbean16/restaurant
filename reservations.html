@@ -9,6 +9,7 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
 	<script src="https://code.jquery.com/jquery.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<!-- 	<script src="server.js"></script> -->
 
 </head>
 <body>
@@ -82,6 +83,38 @@
 
 <script type="text/javascript">
 
+$("#submit").on("click", function(event) {
+	event.preventDefault();
+	var newReservation = {
+		name: $("#reserve_name").val().trim(),
+		phone: $("#reserve_phone").val().trim(),
+		email: $("#reserve_email").val().trim(),
+		id: $("#reserve_uniqueID").val().trim()
+	};
+
+	console.log(newReservation);
+
+	$.post("/api/tables", newReservation, function(data) {
+		console.log(data);
+
+    	if(data == true){
+    		alert("Yay! You are officially booked!")
+    	}
+
+    	if(data == false){
+    		alert("Sorry you are on the wait list")
+    	}
+
+    	// Clear the form when submitting
+		$('#reserve_name').val("");
+		$('#reserve_phone').val("");
+		$('#reserve_email').val("");
+		$('#reserve_uniqueID').val("");
+	});
+
+});
+
+
 
 // 	$(".submit").on("click", function(){
 
@@ -125,31 +158,7 @@
 
 
 
-$("#submit").on("click", function(event) {
-  event.preventDefault();
-  var newReservation = {
-    name: $("#reserve_name").val().trim(),
-    phone: $("#reserve_phone").val().trim(),
-    email: $("#reserve_email").val().trim(),
-    id: $("#reserve_uniqueID").val().trim()
-  };
 
-  if (reservations.length <= 5) {
-	  $.post("/api/tables", newReservation)
-	  .done(function(data) {
-	    console.log(data);
-	    alert("Adding to tables");
-	  });
-  } else if (reservations.length > 5) {
-  	  $.post("/api/waitlist", newReservation)
-	  .done(function(data) {
-	    console.log(data);
-	    alert("Adding to waitlist");
-	  });
-  }
-
-
-});
 
 
 </script>

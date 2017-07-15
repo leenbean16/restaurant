@@ -1,6 +1,7 @@
 var express = require("express");
 var bodyParser = require("body-parser");
 var path = require("path");
+var input = require('./input.js');
 
 var app = express();
 var PORT = 3000;
@@ -43,13 +44,20 @@ app.get("/api/tables", function(req, res) {
 
 
 app.post("/api/tables", function(req, res) {
-  var newreservation = req.body;
+	var newreservation = req.body;
+	console.log(newreservation);
 
-  console.log(newreservation);
+	// res.json(newreservation);
 
-  reservations.push(newreservation);
+	if (reservations.length <= 5) {
+		reservations.push(newreservation);
+		res.status(200).send(true);
+	  } else if (reservations.length > 5) {
+	  	waitlist.push(newReservation);
+		res.status(200).send(false);
+	  }
 
-  res.json(newreservation);
+	
 });
 
 app.get("/api/waitlist", function(req, res) {
@@ -65,5 +73,3 @@ app.post("/api/waitlist", function(req, res) {
 
   res.json(newwaitlist);
 });
-
-
