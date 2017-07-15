@@ -1,0 +1,80 @@
+body{
+	background: #E3E3E3;
+	font-family: 'Contrail One', cursive;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+	background: #2B303A;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 0px;
+}
+
+.glyphicon-fire:before {
+    content: "\e104";
+    color: red;
+}
+
+.text-center{
+	color: #ffffff;
+}
+
+h1.text-center{
+	color: #ffffff;	
+}
+
+.btn-primary {
+    color: #000;
+    background-color: #B2DDF7;
+    border-color: #B2DDF7;
+}
+
+.btn-danger {
+    color: #000;
+    background-color: #B2DDF7;
+    border-color: #B2DDF7;
+}
+
+div.panel-heading {
+	background: #A7D3A6;
+    padding: 10px 15px;
+    border-bottom: 1px solid transparent;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: black;
+    border-color: #A7D3A6;
+}
+
+div.panel-body {
+	background: #58A4B0;
+    padding: 15px;
+}
+
+div.form-group{
+	opacity: 1 !important;
+}
+
+.panel-default>.panel-heading {
+    color: #fff;
+    background-color: black;
+    border-color: #ddd;
+}
+
+.panel {
+    margin-bottom: 20px;
+    background-color: #fff;
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+div.panel-body {
+    color: #fff;
+    background: gray;
+    padding: 15px;
+}
