@@ -1,9 +1,18 @@
 body{
-	background: #FF2C55;
+	background: #E3E3E3;
+	font-family: 'Contrail One', cursive;
 }
 
-.jumbotron{
+.container .jumbotron, .container-fluid .jumbotron {
 	background: #2B303A;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 0px;
+}
+
+.glyphicon-fire:before {
+    content: "\e104";
+    color: red;
 }
 
 .text-center{
@@ -62,4 +71,10 @@ div.form-group{
     border-radius: 0px;
     -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
     box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+div.panel-body {
+    color: #fff;
+    background: gray;
+    padding: 15px;
 }
